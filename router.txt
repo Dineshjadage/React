@@ -1,0 +1,85 @@
+All outside
+directory (C:\Users\jadag\my-app) and run the following command: npm install react-router-dom
+
+
+
+
+
+1. index.js
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import './index.css';
+import App from './App';
+import reportWebVitals from './reportWebVitals';
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);
+
+// If you want to start measuring performance in your app, pass a function
+// to log results (for example: reportWebVitals(console.log))
+// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+reportWebVitals();
+
+
+
+2. App.js
+import { BrowserRouter, Routes, Route } from "react-router-dom"
+import About from "./About" 
+import Contact from "./Contact" 
+import Home from "./Home" 
+export default function App(){
+     return( 
+     <div> 
+        <BrowserRouter> 
+        <Routes> 
+            <Route index element={<Home/>} /> 
+            <Route path="/Contact" element={<Contact/>} /> 
+            <Route path="/About" element={<About/>} /> 
+            </Routes> 
+            </BrowserRouter> 
+            </div>
+     )
+    }   
+
+
+3. Home.js
+import { Link } from "react-router-dom" ;
+export default function Home (){
+     return (
+         <div>
+         <center> 
+        <h2><center><font color='black '>Home Page</font></center></h2>
+        <button>
+         <Link to="About" className="rj"> About Page </Link> 
+        </button> 
+        <button> 
+            <Link to="Contact" className="rj"> <center>Contact Page</center> </Link> 
+        </button> 
+        </center> 
+        </div>
+     )
+    }
+
+4. Contact.js
+export default function Contact(){
+   return(
+    <>
+     <h2><center>Contact Page</center></h2>
+      </>
+     )
+    }   
+
+5. About.js
+export default function About(){
+  return(
+   <>
+    <h2><center>About Page</center></h2>
+     </>
+    )
+   }   
+
+

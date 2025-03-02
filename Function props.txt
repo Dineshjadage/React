@@ -1,0 +1,81 @@
+outside ALL
+
+
+
+
+
+"""Function props"""
+
+1.App.js
+import React from "react";
+import Classprops  from "./Classprops";
+import Functionprops from "./Functionprops";
+
+class App extends React.Component{
+    render(){
+    return (
+        <center>
+        <div>
+            <Classprops name="Learner 1" place="place A"/>
+            <button> child Component</button>
+
+            <Classprops name="Learner 2" place="place B"/>
+            <button> cilck</button>
+
+            <Functionprops name="Learner 3" place="place C"/>
+        </div></center>
+    );
+  }
+}
+
+export default App; 
+
+2.Classprops.js
+import React, {Component} from "react";
+
+export class Classprops extends Component{
+    render(){
+        return(
+            <div>
+                <h1>cbkpc Kle chikodi</h1> {this.props.name} from{this.props.place}
+                <p>{this.props.children}</p>
+            </div>
+        );
+    }
+}
+
+export default Classprops;
+
+3.Functionprops.js
+import React from "react";
+
+function Functionprops(props){
+    return(
+        <div>
+            <h3>this Funtion component</h3>
+        </div>
+    );
+}
+
+export default Functionprops;
+
+4. index.js 
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import './index.css';
+import App from './App';
+import reportWebVitals from './reportWebVitals';
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);
+
+// If you want to start measuring performance in your app, pass a function
+// to log results (for example: reportWebVitals(console.log))
+// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+reportWebVitals();
+
+

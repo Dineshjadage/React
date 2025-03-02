@@ -1,0 +1,84 @@
+inside Component - NewComp.js,
+outside - index.js , App.js
+
+
+
+
+1.App.js
+import React from "react";
+import NewComp from "./Component/NewComp.js";
+import './App.css';
+
+class App extends React.Component {
+    styles = {
+        fontStyle: "bold",
+        color: "teal"
+    };
+
+    render() {
+        return (
+            <div className="App" style={{ textAlign: 'center' }}>
+                <h1 style={this.styles}>Welcome</h1>
+                <NewComp />
+            </div>
+        );
+    }
+}
+
+export default App;
+
+
+2.NewComp.js
+import React, { Component } from "react";
+
+class NewComp extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            message: "hello cse students",
+            sub: "Click"
+        };
+    }
+
+    styles = {
+        fontStyle: "italic",
+        color: "red"
+    };
+
+    Buttonchange = () => {
+        this.setState({
+            message: "Thank you! for the click",
+        });
+    }
+
+    render() {
+        return (
+            <div className="App">
+                <h3 style={this.styles}>{this.state.message}</h3>
+                <button onClick={this.Buttonchange}>
+                    {this.state.sub}
+                </button>
+            </div>
+        );
+    }
+}
+
+export default NewComp;
+
+3.index.js
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import './index.css';
+import App from './App';
+import reportWebVitals from './reportWebVitals';
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);
+// If you want to start measuring performance in your app, pass a function
+// to log results (for example: reportWebVitals(console.log))
+// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+reportWebVitals();

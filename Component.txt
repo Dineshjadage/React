@@ -1,0 +1,79 @@
+outside- index.js , App.js ,
+inside the Component folder   - Department.js , Employee.js , Home.js
+
+
+
+
+1.index.js
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import './index.css';
+import App from './App';
+import reportWebVitals from './reportWebVitals';
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);
+
+// If you want to start measuring performance in your app, pass a function
+// to log results (for example: reportWebVitals(console.log))
+// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+reportWebVitals();
+
+2.App.js
+import React from 'react';
+import './App.css';
+import { Home } from './Component/Home';
+import { Department } from './Component/Department';
+import { Employee } from './Component/Employee';
+
+function App() {
+    return (
+        <div className="container">
+            <Home />
+            <Department />
+            <Employee />
+        </div>
+    );
+}
+
+export default App;
+
+3.Department.js
+import React,{Component} from "react";
+export class Department extends Component{
+    render(){
+        return(
+            <div className="container">
+                <h3>This is the Department Page .</h3>
+            </div>
+        )
+    }
+}
+
+4.Employee.js
+import React,{Component} from "react";
+export class Employee extends Component{
+    render(){
+        return(
+            <div className="container">
+                <h3>This is Empolyee Page .</h3>
+            </div>
+        )
+    }
+}
+
+5.Home.js
+import React,{Component} from "react";
+export class Home extends Component{
+    render(){
+        return(
+            <div className="container">
+                <h3>Wlecome to cbkpc .</h3>
+            </div>
+        )
+    }
+}
